@@ -57,7 +57,7 @@ def get_vals_dict(path_to_val_txt):
     with open(path_to_val_txt, 'r') as f:
         vals = f.read().split("\n")
 
-    print vals
+    print map(lambda x: x.split(" "), vals)
 
 
 
