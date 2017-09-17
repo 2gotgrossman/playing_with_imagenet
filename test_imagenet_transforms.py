@@ -23,7 +23,6 @@ def get_image_prob_vector(image):
     x = image.convert("L")
     x = np.array(x)
     x = np.expand_dims(x, axis=0)
-    x = preprocess_input(x)
     preds = model.predict(x)
     preds = preds.tolist()[0] # Unnecessarily nested list
     return preds
