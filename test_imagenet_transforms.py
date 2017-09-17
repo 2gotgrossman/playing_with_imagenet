@@ -25,6 +25,7 @@ def get_image_prob_vector(img):
     x = preprocess_input(x)
     preds = model.predict(x)
     preds = preds.tolist()[0] # Unnecessarily nested list
+    print max(preds)
     return preds
 
 def get_argsort(vector):
@@ -86,7 +87,7 @@ def test_imagenet_validation_set():
         rotations = map(lambda x: rotate_image(image, x), [0, 90, 180, 270])
 
         if i < 100:
-            im.save("images/" + str(i) + ".JPEG")
+            rotations[0].save("images/" + str(i) + ".JPEG")
 
         predictions = map( lambda x: get_image_prob_vector(x), rotations)
 
