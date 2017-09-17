@@ -86,7 +86,7 @@ def test_imagenet_validation_set():
         rotations = map(lambda x: rotate_image(image, x), [0, 90, 180, 270])
 
         for i,im in enumerate(rotations):
-            im.save("images/" + i)
+            im.save("images/" + str(i) + ".jpeg")
 
         raw_input()
 
