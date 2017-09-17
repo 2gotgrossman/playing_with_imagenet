@@ -60,7 +60,7 @@ def get_vals_dict(path_to_val_txt):
     print vals
 
     print "\n"*20
-    print map(lambda x: x.split(" "), vals )
+    print map(lambda x: zip(x.split(" ")), vals )
 
     vals_dict = dict(map(lambda x: x.split(" "), vals ))
     return vals_dict
@@ -96,7 +96,7 @@ def test_imagenet_validation_set():
 
 
         performance = map(lambda (x,y): x+y, zip(performance, top_five_predictions+top_one_predictions))
-
+        print i
 
         if i % 100 == 0:
             print performance
