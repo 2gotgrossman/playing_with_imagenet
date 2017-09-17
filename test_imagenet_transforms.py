@@ -36,7 +36,7 @@ def get_image_top_1(image_vector, image_name, vals_dict):
     returns Boolean: True if true class in Top 1
     """
     correct_index = vals_dict[image_name]
-    if image_vector.index(image_vector.max()) == correct_index:
+    if image_vector.index(max(image_vector)) == correct_index:
         return True
     else:
         return False
