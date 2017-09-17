@@ -85,10 +85,8 @@ def test_imagenet_validation_set():
         image = get_image(path_to_image=IMAGE_FOLDER_ORIGINAL + im)
         rotations = map(lambda x: rotate_image(image, x), [0, 90, 180, 270])
 
-        for i,im in enumerate(rotations):
-            im.save("images/" + str(i) + ".jpeg")
-
-        raw_input()
+        if i < 100:
+            im.save("images/" + str(i) + ".JPEG")
 
         predictions = map( lambda x: get_image_prob_vector(x), rotations)
 
