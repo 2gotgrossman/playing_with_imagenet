@@ -83,8 +83,11 @@ def test_imagenet_validation_set():
 
     for i, im in enumerate(images):
         image = get_image(path_to_image=IMAGE_FOLDER_ORIGINAL + im)
+        print image
         rotations = map(lambda x: rotate_image(image, x), [0, 90, 180, 270])
+        print rotations
         predictions = map( lambda x: get_image_prob_vector(x), rotations)
+        print predictions
 
         top_one_predictions = map(lambda x: get_image_top_1(x, im, vals_dict), predictions)
         top_five_predictions = map(lambda x: get_image_top_5(x, im, vals_dict), predictions)
