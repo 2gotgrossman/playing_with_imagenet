@@ -55,12 +55,11 @@ def get_image_top_5(image_vector, image_name, vals_dict):
 
 def get_vals_dict(path_to_val_txt):
     with open(path_to_val_txt, 'r') as f:
-        vals = f.read().split()
+        vals = f.read()
 
     print vals
 
-    print "\n"*20
-    print map(lambda x: zip(x.split(" ")), vals )
+
 
     vals_dict = dict(map(lambda x: x.split(" "), vals ))
     return vals_dict
