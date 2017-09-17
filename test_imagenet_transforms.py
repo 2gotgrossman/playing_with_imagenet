@@ -60,7 +60,7 @@ def get_vals_dict(path_to_val_txt):
     vals_dict = dict(map(lambda x: x.split(" "), vals ))
     return vals_dict
 
-def test_imagenet_validation_set(folder):
+def test_imagenet_validation_set():
     classes_and_predictions = {}
 
     IMAGE_FOLDER_ORIGINAL = '/home/neuroShare/data/ImageNet/ILSVRC2012_data/val/'
@@ -99,3 +99,6 @@ def test_imagenet_validation_set(folder):
             print('Predicted:', decode_predictions(preds, top=3)[0])
 
         print performance
+
+if __name__ == '__main__':
+    test_imagenet_validation_set()
