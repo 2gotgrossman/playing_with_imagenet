@@ -16,7 +16,7 @@ def rotate_image(image, by_x_degrees):
     return image.rotate(by_x_degrees)
 
 def get_image(path_to_image):
-    return image.load_img(img_path, target_size=(224, 224))
+    return image.load_img(path_to_image, target_size=(224, 224))
 
 
 def get_image_prob_vector(image):
@@ -56,10 +56,6 @@ def get_image_top_5(image_vector, image_name, vals_dict):
 def get_vals_dict(path_to_val_txt):
     with open(path_to_val_txt, 'r') as f:
         vals = f.read().split("\n")
-
-    print map(lambda x: x.split(" "), vals)
-
-
 
     vals_dict = dict(map(lambda x: x.split(" "), vals ))
     return vals_dict
