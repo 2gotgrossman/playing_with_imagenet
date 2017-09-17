@@ -55,7 +55,7 @@ def get_image_top_5(image_vector, image_name, vals_dict):
 
 def get_vals_dict(path_to_val_txt):
     with open(path_to_val_txt, 'r') as f:
-        vals = f.read()
+        vals = f.read().split("\n")
 
     print vals
 
