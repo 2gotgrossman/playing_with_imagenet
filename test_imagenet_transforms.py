@@ -21,7 +21,7 @@ def get_image(path_to_image):
 
 def get_image_prob_vector(image):
     x = image.convert("L")
-    x = numpy.array(x)
+    x = np.array(x)
     x = np.expand_dims(x, axis=0)
     x = preprocess_input(x)
     preds = model.predict(x)
