@@ -96,7 +96,6 @@ def test_imagenet_validation_set():
         if i % 100 == 0:
             print performance
             print ('Image #', i)
-            print('Predicted:', decode_predictions(preds, top=3)[0])
 
         print performance
 
