@@ -19,9 +19,18 @@ def get_image(path_to_image):
     return image.load_img(path_to_image, target_size=(224, 224))
 
 
+def image2array(im):
+    if im.mode not in ("L", "F"):
+        raise ValueError, "can only convert single-layer images"
+    if im.mode == "L":
+        a = Numeric.fromstring(im.tostring(), Numeric.UnsignedInt8)
+    else:
+        a = Numeric.fromstring(im.tostring(), Numeric.Float32)
+    a.shape = im.size[1], im.size[0]
+    return a
+
 def get_image_prob_vector(image):
-    print image
-    x = image.img_to_array(img)
+    x = image2array(image)
     x = np.expand_dims(x, axis=0)
     x = preprocess_input(x)
     preds = model.predict(x)
