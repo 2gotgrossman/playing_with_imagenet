@@ -19,10 +19,10 @@ def get_image(path_to_image):
     return image.load_img(path_to_image, target_size=(224, 224))
 
 
-def get_image_prob_vector(image):
-    x = image.convert("L")
-    x = np.array(x)
+def get_image_prob_vector(img):
+    x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
+    x = preprocess_input(x)
     preds = model.predict(x)
     preds = preds.tolist()[0] # Unnecessarily nested list
     return preds
