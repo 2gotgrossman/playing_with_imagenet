@@ -25,7 +25,6 @@ def get_image_prob_vector(img):
     x = preprocess_input(x)
     preds = model.predict(x)
     preds = preds.tolist()[0] # Unnecessarily nested list
-    print max(preds)
     return preds
 
 def get_argsort(vector):
@@ -96,8 +95,6 @@ def test_imagenet_validation_set():
 
         top_one_predictions = map(lambda x: get_image_top_1(x, im, vals_dict), predictions)
         top_five_predictions = map(lambda x: get_image_top_5(x, im, vals_dict), predictions)
-
-        print top_one_predictions
 
         performance = map(lambda (x,y): x+y, zip(performance, top_five_predictions+top_one_predictions))
         print i
