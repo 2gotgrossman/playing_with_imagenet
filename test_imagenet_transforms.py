@@ -59,6 +59,9 @@ def get_vals_dict(path_to_val_txt):
         vals = f.read().split("\n")
 
     vals_dict = dict(map(lambda x: x.split(" "), vals ))
+
+    for k,v in vals_dict.iteritems():
+        vals_dict[k] = int(v)
     return vals_dict
 
 def test_imagenet_validation_set():
